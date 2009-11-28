@@ -8,16 +8,16 @@
 
 #import <AppKit/AppKit.h>
 #import <complex.h>
+#import "Constants.h"
 
-#define SectionCount 5
 
 @interface FrequencyView : NSView {
 	int numCount;
 	complex *fft;
 	double max;
 	
-	double sectionArea[SectionCount];
-	uint64_t sectionWasHighAt[SectionCount];
+@public
+	BOOL sectionIsHigh[SectionCount];
 	
 }
 -(void)newData:(complex*)fft_ count:(int)count_;

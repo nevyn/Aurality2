@@ -7,14 +7,6 @@
 //
 
 #import "FrequencyView.h"
-#include <mach/mach.h>
-#include <mach/mach_time.h>
-
-NSTimeInterval AbsoluteToSeconds(int64_t absolute) {
-	const Nanoseconds elapsedNano = AbsoluteToNanoseconds( *(AbsoluteTime *) &absolute );
-	const uint64_t elapsedNano2 = * (uint64_t *) &elapsedNano;
-	return elapsedNano2/1000000000.;
-}
 
 
 @implementation FrequencyView
@@ -37,12 +29,18 @@ NSTimeInterval AbsoluteToSeconds(int64_t absolute) {
 - (void)drawRect:(NSRect)rect {
 	if( ! numCount ) return;
 	
-	static const double skip = 6;
+	static const double skip = 2;
 	
-	[[NSColor whiteColor] set];
+	[[NSColor clearColor] set];
 	NSRectFill(rect);
 	
 	[[NSColor grayColor] set];
+	
+	NSDictionary *whiteattr = [NSDictionary dictionaryWithObjectsAndKeys:
+		[NSColor whiteColor], NSForegroundColorAttributeName,
+		[NSFont systemFontOfSize:9], NSFontAttributeName,
+		nil
+	];
 	
 		
 	// y labels
@@ -50,16 +48,14 @@ NSTimeInterval AbsoluteToSeconds(int64_t absolute) {
 	float heightPerLabel = self.frame.size.height/labelCount;
 	for(int y = 0; y < labelCount; y++) {
 		float this = (max/labelCount)*y;
-		[(NSString*)[NSString stringWithFormat:@"%.0e", this] drawAtPoint:(NSPoint){5, heightPerLabel*y} withAttributes:nil];
+		[(NSString*)[NSString stringWithFormat:@"%.0e", this] drawAtPoint:(NSPoint){5, heightPerLabel*y} withAttributes:whiteattr];
 	}
 	
-	static const double maxfreq = 22050.;
 	double freqPerIdx = maxfreq/numCount;
 
-	#define magat(idx) sqrt(creal(fft[idx])*creal(fft[idx]) + cimag(fft[idx])*cimag(fft[idx]));
 	
 	for(int i = 0; i < numCount; i++) {
-		double mag = magat(i);
+		double mag = cmagnitude(fft[i]);
 		
 		max = MAX(mag,max);
 		
@@ -71,29 +67,15 @@ NSTimeInterval AbsoluteToSeconds(int64_t absolute) {
 		NSRectFill(r);
 	}
 	
-	static const double low = 1000, high = 2200;
-	const double lowidx = low/freqPerIdx, highidx = high/freqPerIdx;
-	bzero(sectionArea, SectionCount*sizeof(double));
+	const double lowidx = GameFreqLow/freqPerIdx, highidx = GameFreqHigh/freqPerIdx;
 	for(int i = 0; i < SectionCount; i++) {
+		double alpha = sectionIsHigh[i] ? 0.8 : 0.4;
 		const double freqwidth = ((highidx-lowidx)/SectionCount);
 		const double freqidx = lowidx + freqwidth*i;
-		for(int j = freqidx; j < freqidx+freqwidth; j++)
-			sectionArea[i] += magat(j);
-		
-		if(sectionArea[i] > 2e7)
-			sectionWasHighAt[i] = mach_absolute_time();
-		else if(AbsoluteToSeconds(mach_absolute_time()-sectionWasHighAt[i]) > 0.2)
-			sectionWasHighAt[i] = 0;
-		
-		double alpha = sectionWasHighAt[i] ? .8 : .4;
 
-		
 		NSRect r = NSMakeRect(freqidx*skip, 0, freqwidth*skip, self.bounds.size.height);
 		[[NSColor colorWithCalibratedHue:i/(float)SectionCount saturation:.6 brightness:.8 alpha:alpha] set];
 		NSRectFillUsingOperation(r, NSCompositeSourceOver);
-		
-		[(NSString*)[NSString stringWithFormat:@"%.1e", sectionArea[i]] drawAtPoint:(NSPoint){r.origin.x, r.size.height-17} withAttributes:nil];
-
 	}
 	
 	
@@ -101,12 +83,12 @@ NSTimeInterval AbsoluteToSeconds(int64_t absolute) {
 	float widthPerLabel = self.frame.size.width/labelCount;
 	for(int x = 0; x < labelCount; x++) {
 		float this = widthPerLabel*x;
-		[(NSString*)[NSString stringWithFormat:@"%.0f", this*freqPerIdx/skip] drawAtPoint:(NSPoint){this, 0} withAttributes:[NSDictionary dictionaryWithObject:[NSColor whiteColor] forKey:NSForegroundColorAttributeName]];
+		[(NSString*)[NSString stringWithFormat:@"%.0f", this*freqPerIdx/skip] drawAtPoint:(NSPoint){this, 0} withAttributes:whiteattr];
 
 	}
 	
 	
-	[(NSString*)[NSString stringWithFormat:@"%d", numCount] drawAtPoint:(NSPoint){self.bounds.size.width-35, self.bounds.size.height-17} withAttributes:nil];
+	[(NSString*)[NSString stringWithFormat:@"%d", numCount] drawAtPoint:(NSPoint){self.bounds.size.width-35, self.bounds.size.height-17} withAttributes:whiteattr];
 
 	
 	

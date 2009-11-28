@@ -13,6 +13,9 @@
 		0579518710C0385B00EFEF40 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0579518610C0385B00EFEF40 /* AudioToolbox.framework */; };
 		0579518D10C0387900EFEF40 /* CInvocationGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 0579518B10C0387900EFEF40 /* CInvocationGrabber.m */; };
 		0579519A10C038BB00EFEF40 /* FrequencyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0579519910C038BB00EFEF40 /* FrequencyView.m */; };
+		0579548110C1433800EFEF40 /* BNZVector.m in Sources */ = {isa = PBXBuildFile; fileRef = 0579547E10C1433800EFEF40 /* BNZVector.m */; };
+		0579548210C1433800EFEF40 /* BNZLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 0579548010C1433800EFEF40 /* BNZLine.m */; };
+		0579548810C1437700EFEF40 /* AuGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0579548710C1437700EFEF40 /* AuGameView.m */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* Aurality2AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* Aurality2AppDelegate.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -32,6 +35,13 @@
 		0579518C10C0387900EFEF40 /* CInvocationGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CInvocationGrabber.h; sourceTree = "<group>"; };
 		0579519810C038BB00EFEF40 /* FrequencyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrequencyView.h; sourceTree = "<group>"; };
 		0579519910C038BB00EFEF40 /* FrequencyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrequencyView.m; sourceTree = "<group>"; };
+		0579544810C13F8C00EFEF40 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		0579547D10C1433800EFEF40 /* BNZVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNZVector.h; sourceTree = "<group>"; };
+		0579547E10C1433800EFEF40 /* BNZVector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNZVector.m; sourceTree = "<group>"; };
+		0579547F10C1433800EFEF40 /* BNZLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNZLine.h; sourceTree = "<group>"; };
+		0579548010C1433800EFEF40 /* BNZLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNZLine.m; sourceTree = "<group>"; };
+		0579548710C1437700EFEF40 /* AuGameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuGameView.m; sourceTree = "<group>"; };
+		0579549210C143F100EFEF40 /* AuGameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuGameView.h; sourceTree = "<group>"; };
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -72,6 +82,13 @@
 				256AC3D90F4B6AC300CF3369 /* Aurality2AppDelegate.m */,
 				0579519810C038BB00EFEF40 /* FrequencyView.h */,
 				0579519910C038BB00EFEF40 /* FrequencyView.m */,
+				0579544810C13F8C00EFEF40 /* Constants.h */,
+				0579547D10C1433800EFEF40 /* BNZVector.h */,
+				0579547E10C1433800EFEF40 /* BNZVector.m */,
+				0579547F10C1433800EFEF40 /* BNZLine.h */,
+				0579548010C1433800EFEF40 /* BNZLine.m */,
+				0579548710C1437700EFEF40 /* AuGameView.m */,
+				0579549210C143F100EFEF40 /* AuGameView.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -189,6 +206,9 @@
 				0579518410C0380600EFEF40 /* AudioRecorder.m in Sources */,
 				0579518D10C0387900EFEF40 /* CInvocationGrabber.m in Sources */,
 				0579519A10C038BB00EFEF40 /* FrequencyView.m in Sources */,
+				0579548110C1433800EFEF40 /* BNZVector.m in Sources */,
+				0579548210C1433800EFEF40 /* BNZLine.m in Sources */,
+				0579548810C1437700EFEF40 /* AuGameView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

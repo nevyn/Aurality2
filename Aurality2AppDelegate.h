@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "FrequencyView.h"
 #import "AudioRecorder.h"
+#import "Constants.h"
 
 @interface Aurality2AppDelegate : NSObject
 <NSApplicationDelegate, AudioRecorderDelegate>
@@ -16,6 +17,10 @@
 	NSWindow *window;
 	IBOutlet FrequencyView *frequencyView;
 	AudioRecorder	*recorder;
+	
+	double sectionArea[SectionCount];
+	uint64_t sectionWasHighAt[SectionCount];
+
 }
 
 @property (assign) IBOutlet NSWindow *window;
