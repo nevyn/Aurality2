@@ -77,9 +77,9 @@
     return [BNZVector vectorX:point.x y:point.y];
 }
 
--(BNZVector*)copy;
+-(BNZVector*)copyWithZone:(NSZone*)z;
 {
-	return [[BNZVector alloc] initWithSize:size CArray:values isResponsible:BNZVectorMemoryCopy];
+	return [[BNZVector allocWithZone:z] initWithSize:size CArray:values isResponsible:BNZVectorMemoryCopy];
 }
 
 -(void)dealloc;

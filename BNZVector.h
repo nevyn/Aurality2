@@ -16,7 +16,7 @@ typedef enum {
 #define VecXY(x_, y_) [BNZVector vectorX:x_ y:y_]
 
 
-@interface BNZVector : NSObject {
+@interface BNZVector : NSObject <NSCopying> {
 	double *values;
 	unsigned size;
 	BNZVectorMemoryResponsibility responsibility;
@@ -37,7 +37,7 @@ typedef enum {
 +(BNZVector*)vectorX:(double)x y:(double)y;
 +(BNZVector*)vectorFromCGPoint:(CGPoint)point;
 
--(BNZVector*)copy;
+-(BNZVector*)copyWithZone:(NSZone*)z;
 
 // Accesors
 -(double)x;

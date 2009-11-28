@@ -16,6 +16,10 @@
 		0579548110C1433800EFEF40 /* BNZVector.m in Sources */ = {isa = PBXBuildFile; fileRef = 0579547E10C1433800EFEF40 /* BNZVector.m */; };
 		0579548210C1433800EFEF40 /* BNZLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 0579548010C1433800EFEF40 /* BNZLine.m */; };
 		0579548810C1437700EFEF40 /* AuGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0579548710C1437700EFEF40 /* AuGameView.m */; };
+		05B3EEC310C149C300EA70F0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B3EEC210C149C300EA70F0 /* QuartzCore.framework */; };
+		05B3F01610C15D8700EA70F0 /* NSColor+CGColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B3F01510C15D8700EA70F0 /* NSColor+CGColor.m */; };
+		05B3F12010C16CB200EA70F0 /* cannon.png in Resources */ = {isa = PBXBuildFile; fileRef = 05B3F11F10C16CB200EA70F0 /* cannon.png */; };
+		05B3F56910C197B400EA70F0 /* tspark.png in Resources */ = {isa = PBXBuildFile; fileRef = 05B3F56810C197B400EA70F0 /* tspark.png */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* Aurality2AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* Aurality2AppDelegate.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -42,6 +46,11 @@
 		0579548010C1433800EFEF40 /* BNZLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNZLine.m; sourceTree = "<group>"; };
 		0579548710C1437700EFEF40 /* AuGameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuGameView.m; sourceTree = "<group>"; };
 		0579549210C143F100EFEF40 /* AuGameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuGameView.h; sourceTree = "<group>"; };
+		05B3EEC210C149C300EA70F0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		05B3F01410C15D8700EA70F0 /* NSColor+CGColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+CGColor.h"; sourceTree = "<group>"; };
+		05B3F01510C15D8700EA70F0 /* NSColor+CGColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+CGColor.m"; sourceTree = "<group>"; };
+		05B3F11F10C16CB200EA70F0 /* cannon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cannon.png; sourceTree = "<group>"; };
+		05B3F56810C197B400EA70F0 /* tspark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tspark.png; sourceTree = "<group>"; };
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -63,6 +72,7 @@
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				0579517410C0375100EFEF40 /* libfftw3.a in Frameworks */,
 				0579518710C0385B00EFEF40 /* AudioToolbox.framework in Frameworks */,
+				05B3EEC310C149C300EA70F0 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +99,8 @@
 				0579548010C1433800EFEF40 /* BNZLine.m */,
 				0579548710C1437700EFEF40 /* AuGameView.m */,
 				0579549210C143F100EFEF40 /* AuGameView.h */,
+				05B3F01410C15D8700EA70F0 /* NSColor+CGColor.h */,
+				05B3F01510C15D8700EA70F0 /* NSColor+CGColor.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -125,6 +137,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				05B3F11F10C16CB200EA70F0 /* cannon.png */,
+				05B3F56810C197B400EA70F0 /* tspark.png */,
 				8D1107310486CEB800E47090 /* Aurality2-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
@@ -141,6 +155,7 @@
 				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
 				0579518610C0385B00EFEF40 /* AudioToolbox.framework */,
+				05B3EEC210C149C300EA70F0 /* QuartzCore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -190,6 +205,8 @@
 			files = (
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
+				05B3F12010C16CB200EA70F0 /* cannon.png in Resources */,
+				05B3F56910C197B400EA70F0 /* tspark.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +226,7 @@
 				0579548110C1433800EFEF40 /* BNZVector.m in Sources */,
 				0579548210C1433800EFEF40 /* BNZLine.m in Sources */,
 				0579548810C1437700EFEF40 /* AuGameView.m in Sources */,
+				05B3F01610C15D8700EA70F0 /* NSColor+CGColor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

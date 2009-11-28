@@ -48,7 +48,7 @@
 	float heightPerLabel = self.frame.size.height/labelCount;
 	for(int y = 0; y < labelCount; y++) {
 		float this = (max/labelCount)*y;
-		[(NSString*)[NSString stringWithFormat:@"%.0e", this] drawAtPoint:(NSPoint){5, heightPerLabel*y} withAttributes:whiteattr];
+		[(NSString*)[NSString stringWithFormat:@"%.1e", this] drawAtPoint:(NSPoint){5, heightPerLabel*y} withAttributes:whiteattr];
 	}
 	
 	double freqPerIdx = maxfreq/numCount;
@@ -63,7 +63,7 @@
 		NSRect r = NSMakeRect(i*skip, 0, skip, height);
 		
 		
-		[[NSColor grayColor] set];
+		[[NSColor lightGrayColor] set];
 		NSRectFill(r);
 	}
 	

@@ -10,12 +10,14 @@
 #import "FrequencyView.h"
 #import "AudioRecorder.h"
 #import "Constants.h"
+#import "AuGameView.h"
 
 @interface Aurality2AppDelegate : NSObject
 <NSApplicationDelegate, AudioRecorderDelegate>
 {
 	NSWindow *window;
 	IBOutlet FrequencyView *frequencyView;
+	IBOutlet AuGameView *gameView;
 	AudioRecorder	*recorder;
 	
 	double sectionArea[SectionCount];

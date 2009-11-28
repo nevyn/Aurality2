@@ -20,7 +20,7 @@
 	recorder.delegate = self;
 	[recorder record];
 }
-
+// From worker thread
 -(void)recorder:(AudioRecorder*)recorder_ updatedFrequencies:(complex *)ffts;
 {
 	int count = recorder_.bufferSampleCount/2 + 1;
@@ -38,9 +38,15 @@
 		if(sectionArea[i] > 2e7) {
 			sectionWasHighAt[i] = mach_absolute_time();
 			frequencyView->sectionIsHigh[i] = YES;
-		} else if(AbsoluteToSeconds(mach_absolute_time()-sectionWasHighAt[i]) > 0.2) {
+			dispatch_async(dispatch_get_main_queue(), ^{
+				[gameView startFiring:i];
+			});
+		} else if(AbsoluteToSeconds(mach_absolute_time()-sectionWasHighAt[i]) > 0.2 && sectionWasHighAt[i]) {
 			sectionWasHighAt[i] = 0;
 			frequencyView->sectionIsHigh[i] = NO;
+			dispatch_async(dispatch_get_main_queue(), ^{
+				[gameView stopFiring:i];
+			});
 		}
 	}
 	
